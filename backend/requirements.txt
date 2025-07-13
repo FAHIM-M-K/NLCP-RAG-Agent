@@ -1,1 +1,11 @@
+pymongo
+fastapi
+langchain
+langchain-core
+langchain-google-genai
+langchain-mcp-adapters
+mcp
+mysql-connector-python
 python-dotenv
+pymongo
+uvicorn
