@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './App.css'; 
 
-
 function App() {
   const [messages, setMessages] = useState([
     {
@@ -24,8 +23,8 @@ function App() {
   const messagesEndRef = useRef(null);
   const textareaRef = useRef(null);
 
-  // host port of backend
-  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/query';
+  
+  const API_URL = process.env.REACT_APP_API_URL;
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -36,7 +35,6 @@ function App() {
   }, [messages]);
 
   useEffect(() => {
-
     const textarea = textareaRef.current;
     if (textarea) {
       textarea.style.height = 'auto'; 
@@ -53,15 +51,17 @@ function App() {
     setLoading(true);
 
     try {
-      const response = await fetch(API_URL, {
+      
+      const response = await fetch(`${API_URL}query`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ message: userMessage.text }),
+        body: JSON.stringify({ message: userMessage.text }), 
       });
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.error || `HTTP error! Status: ${response.status}`);
+        console.error('Backend Error Response:', errorData);
+        throw new Error(errorData.detail || `HTTP error! Status: ${response.status}`);
       }
 
       const data = await response.json();

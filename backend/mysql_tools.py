@@ -9,7 +9,8 @@ from decimal import Decimal
 from mcp.server.fastmcp import FastMCP
 
 # load .env
-load_dotenv()
+# load_dotenv()
+
 MYSQL_HOST = os.getenv("MYSQL_HOST")
 MYSQL_PORT = os.getenv("MYSQL_PORT")
 MYSQL_DATABASE = os.getenv("MYSQL_DATABASE")
