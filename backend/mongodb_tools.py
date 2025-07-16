@@ -8,15 +8,6 @@ import json
 # load .env
 # load_dotenv()
 
-
-# Add these lines for debugging:
-print(f"DEBUG: Reading MYSQL_HOST: '{os.getenv('MYSQL_HOST')}'")
-print(f"DEBUG: Reading MYSQL_PORT: '{os.getenv('MYSQL_PORT')}'")
-print(f"DEBUG: Reading MYSQL_DATABASE: '{os.getenv('MYSQL_DATABASE')}'")
-print(f"DEBUG: Reading MYSQL_USER: '{os.getenv('MYSQL_USER')}'")
-# Only print first few chars of password or 'None'
-
-
 MONGO_URI = os.getenv("MONGO_URI")
 MONGO_DB_NAME = os.getenv("MONGO_DB_NAME")
 
