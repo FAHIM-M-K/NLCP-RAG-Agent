@@ -11,6 +11,20 @@ from mcp.server.fastmcp import FastMCP
 # load .env
 # load_dotenv()
 
+
+# Add these lines for debugging:
+print(f"DEBUG: Reading MYSQL_HOST: '{os.getenv('MYSQL_HOST')}'")
+print(f"DEBUG: Reading MYSQL_PORT: '{os.getenv('MYSQL_PORT')}'")
+print(f"DEBUG: Reading MYSQL_DATABASE: '{os.getenv('MYSQL_DATABASE')}'")
+print(f"DEBUG: Reading MYSQL_USER: '{os.getenv('MYSQL_USER')}'")
+# Only print first few chars of password or 'None'
+password_val = os.getenv('MYSQL_PASSWORD')
+print(f"DEBUG: Reading MYSQL_PASSWORD (present?): {'YES' if password_val else 'NO'}")
+# print(f"DEBUG: Reading MYSQL_PASSWORD (first 5 chars): '{password_val[:5] if password_val else 'None'}'...")
+
+
+
+
 MYSQL_HOST = os.getenv("MYSQL_HOST")
 MYSQL_PORT = os.getenv("MYSQL_PORT")
 MYSQL_DATABASE = os.getenv("MYSQL_DATABASE")
