@@ -8,7 +8,7 @@ from decimal import Decimal
 
 from mcp.server.fastmcp import FastMCP
 
-# load .env
+
 # load_dotenv()
 
 MYSQL_HOST = os.getenv("MYSQL_HOST")
@@ -19,23 +19,6 @@ MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD")
 
 MONGO_URI = os.getenv("MONGO_URI")
 MONGO_DB_NAME = os.getenv("MONGO_DB_NAME") 
-
-
-#--------------
-# ...
-MYSQL_HOST = os.getenv("MYSQL_HOST")
-MYSQL_PORT = os.getenv("MYSQL_PORT")
-MYSQL_DATABASE = os.getenv("MYSQL_DATABASE") 
-MYSQL_USER = os.getenv("MYSQL_USER")
-MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD")
-
-print(f"DEBUG_MYSQL: Host: '{MYSQL_HOST}'")
-print(f"DEBUG_MYSQL: Port: '{MYSQL_PORT}'")
-print(f"DEBUG_MYSQL: Database: '{MYSQL_DATABASE}'")
-print(f"DEBUG_MYSQL: User: '{MYSQL_USER}'")
-print(f"DEBUG_MYSQL: Password present?: {'YES' if MYSQL_PASSWORD else 'NO'}") 
-# ...
-#--------------
 
 
 MYSQL_SSL_CA_PATH = "ca.pem"
