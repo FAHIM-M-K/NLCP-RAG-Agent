@@ -20,6 +20,11 @@ print(f"DEBUG: Reading MYSQL_USER: '{os.getenv('MYSQL_USER')}'")
 MONGO_URI = os.getenv("MONGO_URI")
 MONGO_DB_NAME = os.getenv("MONGO_DB_NAME")
 
+#-------
+print(f"DEBUG_MONGO: URI: '{MONGO_URI}'")
+print(f"DEBUG_MONGO: DB Name: '{MONGO_DB_NAME}'")
+#-------
+
 mcp_server = FastMCP("MongoDB_Tools")
 
 def _get_mongo_collection():
