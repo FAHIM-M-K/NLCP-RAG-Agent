@@ -60,6 +60,7 @@ app = FastAPI(
 origins = [
     "http://localhost",
     "http://localhost:3000",
+    "https://nlcp-rag-agent.onrender.com"
 ]
 
 app.add_middleware(
