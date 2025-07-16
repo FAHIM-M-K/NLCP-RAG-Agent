@@ -25,7 +25,7 @@ MONGO_DB_NAME = os.getenv("MONGO_DB_NAME")
 # ...
 MYSQL_HOST = os.getenv("MYSQL_HOST")
 MYSQL_PORT = os.getenv("MYSQL_PORT")
-MYSQL_DATABASE = os.getenv("MYSQL_DATABASE") # Use the correct name here
+MYSQL_DATABASE = os.getenv("MYSQL_DATABASE") 
 MYSQL_USER = os.getenv("MYSQL_USER")
 MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD")
 
@@ -33,7 +33,7 @@ print(f"DEBUG_MYSQL: Host: '{MYSQL_HOST}'")
 print(f"DEBUG_MYSQL: Port: '{MYSQL_PORT}'")
 print(f"DEBUG_MYSQL: Database: '{MYSQL_DATABASE}'")
 print(f"DEBUG_MYSQL: User: '{MYSQL_USER}'")
-print(f"DEBUG_MYSQL: Password present?: {'YES' if MYSQL_PASSWORD else 'NO'}") # Don't print full password!
+print(f"DEBUG_MYSQL: Password present?: {'YES' if MYSQL_PASSWORD else 'NO'}") 
 # ...
 #--------------
 
