@@ -44,18 +44,18 @@ async def initialize_rag_agent_with_mcp():
 
     #modified----------
     mcp_client = MultiServerMCPClient(
-        servers=[
+        [ 
             StdioServerParameters(
                 name="mongodb",
-                command="python",  
-                args=["mongodb_tools.py"], 
-                env=os.environ.copy()
+                command="python",
+                args=["mongodb_tools.py"],
+                env=os.environ.copy() 
             ),
             StdioServerParameters(
                 name="mysql",
-                command="python",  
-                args=["mysql_tools.py"], 
-                env=os.environ.copy()
+                command="python",
+                args=["mysql_tools.py"],
+                env=os.environ.copy() 
             )
         ]
     )
