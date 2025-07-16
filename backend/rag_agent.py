@@ -25,20 +25,34 @@ async def initialize_rag_agent_with_mcp():
     llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0.0)
     
     print("Connecting to MCP servers and loading tools...")
+    # mcp_client = MultiServerMCPClient(
+    #     {
+    #         # DIRECTLY define the server configurations as dictionaries here:
+    #         "mongodb": {
+    #             "transport": "stdio",
+    #             "command": "python",
+    #             "args": ["mongodb_tools.py"]
+    #         },
+    #         "mysql": {
+    #             "transport": "stdio",
+    #             "command": "python",
+    #             "args": ["mysql_tools.py"]
+    #         }
+    #     }
+    # )
     mcp_client = MultiServerMCPClient(
-        {
-            # DIRECTLY define the server configurations as dictionaries here:
-            "mongodb": {
-                "transport": "stdio",
-                "command": "python",
-                "args": ["mongodb_tools.py"]
-            },
-            "mysql": {
-                "transport": "stdio",
-                "command": "python",
-                "args": ["mysql_tools.py"]
-            }
-        }
+        servers=[
+            StdioServerParameters(
+                name="mongodb", # You can give it a name
+                server_process_cmd=["python", "mongodb_tools.py"],
+                env=os.environ.copy() # THIS IS THE KEY!
+            ),
+            StdioServerParameters(
+                name="mysql", # You can give it a name
+                server_process_cmd=["python", "mysql_tools.py"],
+                env=os.environ.copy() # THIS IS THE KEY!
+            )
+        ]
     )
 
     # 3. load tools from mcp clients
