@@ -36,7 +36,7 @@ async def initialize_rag_agent_with_mcp():
     Google Gemini and tools loaded from MCP Servers.
     """
     # 1. initialize llm (gemini)
-    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0.0)
+    llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0.0)
     
     print("Connecting to MCP servers and loading tools...")
 
