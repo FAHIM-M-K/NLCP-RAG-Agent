@@ -1,13 +1,28 @@
+# import os
+# import asyncio
+# from dotenv import load_dotenv
+# from langchain_google_genai import ChatGoogleGenerativeAI
+# from langchain.agents import AgentExecutor, create_tool_calling_agent
+# from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+# from langchain_core.messages import AIMessage, HumanMessage 
+
+# from langchain_mcp_adapters.client import MultiServerMCPClient 
+
+#------------
 import os
 import asyncio
 from dotenv import load_dotenv
-from langchain_google_genai import ChatGoogleGenerativeAI
+
+# These are the standard paths for the version we just installed
 from langchain.agents import AgentExecutor, create_tool_calling_agent
+from langchain_mcp_adapters.client import MultiServerMCPClient
+from mcp.client.stdio import StdioServerParameters
+
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_core.messages import AIMessage, HumanMessage 
+from langchain_core.messages import AIMessage, HumanMessage
 
-from langchain_mcp_adapters.client import MultiServerMCPClient 
-
+#----------------------new^----------
 
 load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
