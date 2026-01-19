@@ -20,8 +20,15 @@ MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD")
 MONGO_URI = os.getenv("MONGO_URI")
 MONGO_DB_NAME = os.getenv("MONGO_DB_NAME") 
 
-
+CA_CERT_CONTENT = os.getenv("DB_CA_CERT")
 MYSQL_SSL_CA_PATH = "ca.pem"
+
+if CA_CERT_CONTENT:
+    with open(MYSQL_SSL_CA_PATH, "w") as f:
+        f.write(CA_CERT_CONTENT.replace('\\n', '\n'))
+    print("Created ca.pem from environment variable.")
+else:
+    print("DB_CA_CERT not found in env, looking for local ca.pem file.")
 
 mcp_server = FastMCP("MySQL_Tools")
 
